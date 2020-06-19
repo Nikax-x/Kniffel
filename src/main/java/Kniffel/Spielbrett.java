@@ -29,7 +29,7 @@ public class Spielbrett extends javax.swing.JFrame {
     ImageIcon icow5 = new ImageIcon(getClass().getClassLoader().getResource("fuenf.png"));
     ImageIcon icow6 = new ImageIcon(getClass().getClassLoader().getResource("sechs.png"));
 
-    private int eins, zwei, drei, vier, fuenf, sechs, sieben;
+    private int eins, zwei, drei, vier, fuenf, sechs;
 
     /**
      * Creates new form Spielbrett
