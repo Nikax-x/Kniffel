@@ -7,6 +7,7 @@ package Kniffel;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
@@ -239,6 +240,12 @@ public class Spielbrett extends javax.swing.JFrame {
         btn_wuerfeln.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btn_wuerfelnMouseClicked(evt);
+            }
+        });
+
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
             }
         });
 
@@ -541,6 +548,24 @@ public class Spielbrett extends javax.swing.JFrame {
             lbl_wuerfel5.setBorder(BorderFactory.createLineBorder(Color.black));
         }
     }//GEN-LAST:event_lbl_wuerfel5MouseClicked
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
+        if (rb_1er.isSelected()) {
+            lbl_1er.setText(String.valueOf(1 * eins));
+        } else if (rb_2er.isSelected()) {
+            lbl_2er.setText(String.valueOf(2 * zwei));
+        } else if (rb_3er.isSelected()) {
+            lbl_3er.setText(String.valueOf(3 * drei));
+        } else if (rb_4er.isSelected()) {
+            lbl_4er.setText(String.valueOf(4 * vier));
+        } else if (rb_5er.isSelected()) {
+            lbl_5er.setText(String.valueOf(5 * fuenf));
+        } else if (rb_6er.isSelected()) {
+            lbl_6er.setText(String.valueOf(6 * sechs));
+        } else if (rb_3er_par.isSelected()) {
+
+        }
+    }
 
     private void auswerten() {
         zusammenzählen();
