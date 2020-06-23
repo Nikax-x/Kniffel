@@ -12,7 +12,6 @@ import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
 /**
- *
  * @author bekra
  */
 public class Spielbrett extends javax.swing.JFrame {
@@ -294,90 +293,90 @@ public class Spielbrett extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rb_6er)
-                    .addComponent(rb_3er_par)
-                    .addComponent(rb_1er)
-                    .addComponent(rb_2er)
-                    .addComponent(rb_3er)
-                    .addComponent(rb_4er_par)
-                    .addComponent(rb_full_house)
-                    .addComponent(rb_kln_str)
-                    .addComponent(rb_gr_str)
-                    .addComponent(rb_knfl)
-                    .addComponent(rb_4er)
-                    .addComponent(rb_5er)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(rb_chang, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rb_6er)
+                                        .addComponent(rb_3er_par)
+                                        .addComponent(rb_1er)
+                                        .addComponent(rb_2er)
+                                        .addComponent(rb_3er)
+                                        .addComponent(rb_4er_par)
+                                        .addComponent(rb_full_house)
+                                        .addComponent(rb_kln_str)
+                                        .addComponent(rb_gr_str)
+                                        .addComponent(rb_knfl)
+                                        .addComponent(rb_4er)
+                                        .addComponent(rb_5er)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(rb_chang, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addGap(10, 10, 10)
+                                                                        .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(94, 94, 94)
+                                                .addComponent(jButton1)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_1er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_2er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_3er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_4er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_5er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_6er)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_3er_par)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_4er_par)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_full_house)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_kln_str)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_gr_str)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_knfl)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_chang)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rb_1er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_2er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_3er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_4er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_5er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_6er)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rb_3er_par)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_4er_par)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_full_house)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_kln_str)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_gr_str)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_knfl)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rb_chang)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButton1))
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE))
+                                .addContainerGap())
         );
 
         pack();
@@ -550,22 +549,99 @@ public class Spielbrett extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_wuerfel5MouseClicked
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
-        if (rb_1er.isSelected()) {
+        if (rb_1er.isSelected() && rb_1er.isEnabled()) {
             lbl_1er.setText(String.valueOf(1 * eins));
-        } else if (rb_2er.isSelected()) {
+        } else if (rb_2er.isSelected() && rb_2er.isEnabled()) {
             lbl_2er.setText(String.valueOf(2 * zwei));
-        } else if (rb_3er.isSelected()) {
+        } else if (rb_3er.isSelected() && rb_3er.isEnabled()) {
             lbl_3er.setText(String.valueOf(3 * drei));
-        } else if (rb_4er.isSelected()) {
+        } else if (rb_4er.isSelected() && rb_4er.isEnabled()) {
             lbl_4er.setText(String.valueOf(4 * vier));
-        } else if (rb_5er.isSelected()) {
+        } else if (rb_5er.isSelected() && rb_5er.isEnabled()) {
             lbl_5er.setText(String.valueOf(5 * fuenf));
-        } else if (rb_6er.isSelected()) {
+        } else if (rb_6er.isSelected() && rb_6er.isEnabled()) {
             lbl_6er.setText(String.valueOf(6 * sechs));
-        } else if (rb_3er_par.isSelected()) {
-
+        } else if (rb_3er_par.isSelected() && rb_3er_par.isEnabled()) {
+            int int_3er_par = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;//da die Augenzahl -1 von der gezeigten zahl ist muss bei jedem Würfel +1 gerechnet werden. Bei 5 Würfeln also +5
+            lbl_3er_psh.setText(String.valueOf(int_3er_par));
+        } else if (rb_4er_par.isSelected() && rb_4er_par.isEnabled()) {
+            int int_4er_par = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;
+            lbl_4er_psh.setText(String.valueOf(int_4er_par));
+        } else if (rb_full_house.isSelected()) {
+            lbl_fullhouse.setText(String.valueOf(25));
+        } else if (rb_kln_str.isSelected()) {
+            lbl_kln_str.setText(String.valueOf(30));
+        } else if (rb_gr_str.isSelected()) {
+            lbl_grs_str.setText(String.valueOf(40));
+        } else if (rb_knfl.isSelected()) {
+            lbl_knfl.setText(String.valueOf(50));
+        } else if (rb_chang.isSelected()) {
+            int int_chang = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;
+            lbl_chnc.setText(String.valueOf(int_chang));
         }
+
+
+        int int_ges_oben = 0;
+        int int_ges_unten = 0;
+        int int_ges = 0;
+
+        if (!(lbl_1er.getText() == "")) {
+            int int_1er = Integer.parseInt(lbl_1er.getText());
+            int_ges_oben += int_1er;
+        }
+        if (!(lbl_2er.getText() == "")) {
+            int int_2er = Integer.parseInt(lbl_2er.getText());
+            int_ges_oben += int_2er;
+        }
+        if (!(lbl_3er.getText() == "")) {
+            int int_3er = Integer.parseInt(lbl_3er.getText());
+            int_ges_oben += int_3er;
+        }
+        if (!(lbl_4er.getText() == "")) {
+            int int_4er = Integer.parseInt(lbl_4er.getText());
+            int_ges_oben += int_4er;
+        }
+        if (!(lbl_5er.getText() == "")) {
+            int int_5er = Integer.parseInt(lbl_5er.getText());
+            int_ges_oben += int_5er;
+        }
+        if (!(lbl_6er.getText() == "")) {
+            int int_6er = Integer.parseInt(lbl_6er.getText());
+            int_ges_oben += int_6er;
+        }
+        lbl_zws_oben.setText(String.valueOf(int_ges_oben));
+        if (int_ges_oben >= 63) {
+            int_ges_oben += 35;
+            lbl_bonus.setText(String.valueOf(35));
+        }
+        lbl_ges_oben.setText(String.valueOf(int_ges_oben));
+
+        if (!(lbl_3er_psh.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_3er_psh.getText());
+        }
+        if (!(lbl_4er_psh.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_4er_psh.getText());
+        }
+        if (!(lbl_fullhouse.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_fullhouse.getText());
+        }
+        if (!(lbl_kln_str.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_kln_str.getText());
+        }
+        if (!(lbl_grs_str.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_grs_str.getText());
+        }
+        if (!(lbl_knfl.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_knfl.getText());
+        }
+        if (!(lbl_chnc.getText() == "")) {
+            int_ges_unten += Integer.parseInt(lbl_chnc.getText());
+        }
+        lbl_ges_oben_erneut.setText(String.valueOf(int_ges_oben));
+        lbl_ges_unt.setText(String.valueOf(int_ges_unten));
+        lbl_ges.setText(String.valueOf(int_ges_oben + int_ges_unten));
     }
+
 
     private void auswerten() {
         zusammenzählen();
@@ -576,43 +652,43 @@ public class Spielbrett extends javax.swing.JFrame {
         }
 
         if (eins == 0) {
-            rb_1er.setEnabled(false);
             rb_1er.setSelected(false);
+            rb_1er.setEnabled(false);
         } else {
             rb_1er.setEnabled(true);
         }
 
         if (zwei == 0) {
-            rb_2er.setEnabled(false);
             rb_2er.setSelected(false);
+            rb_2er.setEnabled(false);
         } else {
             rb_2er.setEnabled(true);
         }
 
         if (drei == 0) {
-            rb_3er.setEnabled(false);
             rb_3er.setSelected(false);
+            rb_3er.setEnabled(false);
         } else {
             rb_3er.setEnabled(true);
         }
 
         if (vier == 0) {
-            rb_4er.setEnabled(false);
             rb_4er.setSelected(false);
+            rb_4er.setEnabled(false);
         } else {
             rb_4er.setEnabled(true);
         }
 
         if (fuenf == 0) {
-            rb_5er.setEnabled(false);
             rb_5er.setSelected(false);
+            rb_5er.setEnabled(false);
         } else {
             rb_5er.setEnabled(true);
         }
 
         if (sechs == 0) {
-            rb_6er.setEnabled(false);
             rb_6er.setSelected(false);
+            rb_6er.setEnabled(false);
         } else {
             rb_6er.setEnabled(true);
         }
@@ -620,27 +696,27 @@ public class Spielbrett extends javax.swing.JFrame {
         if (eins >= 3 || zwei >= 3 || drei >= 3 || vier >= 3 || fuenf >= 3 || sechs >= 3) {
             rb_3er_par.setEnabled(true);
         } else {
-            rb_3er_par.setEnabled(false);
             rb_3er_par.setSelected(false);
+            rb_3er_par.setEnabled(false);
         }
 
         if (eins >= 4 || zwei >= 4 || drei >= 4 || vier >= 4 || fuenf >= 4 || sechs >= 4) {
             rb_4er_par.setEnabled(true);
         } else {
-            rb_4er_par.setEnabled(false);
             rb_4er_par.setSelected(false);
+            rb_4er_par.setEnabled(false);
         }
         if (eins >= 1 && zwei >= 1 && drei >= 1 && vier >= 1 && fuenf >= 1 || zwei >= 1 && drei >= 1 && vier >= 1 && fuenf >= 1 && sechs >= 1) {
             rb_gr_str.setEnabled(true);
         } else {
-            rb_gr_str.setEnabled(false);
             rb_gr_str.setSelected(false);
+            rb_gr_str.setEnabled(false);
         }
         if (eins >= 1 && zwei >= 1 && drei >= 1 && vier >= 1 || zwei >= 1 && drei >= 1 && vier >= 1 && fuenf >= 1 || drei >= 1 && vier >= 1 && fuenf >= 1 && sechs >= 1) {
             rb_kln_str.setEnabled(true);
         } else {
-            rb_kln_str.setEnabled(false);
             rb_kln_str.setSelected(false);
+            rb_kln_str.setEnabled(false);
         }
 
         if (eins == 3 && zwei == 2 || eins == 3 && drei == 2 || eins == 3 && vier == 2 || eins == 3 && fuenf == 2 || eins == 3 && sechs == 2
@@ -651,8 +727,8 @@ public class Spielbrett extends javax.swing.JFrame {
                 || sechs == 3 && eins == 2 || sechs == 3 && zwei == 2 || sechs == 3 && drei == 2 || sechs == 3 && vier == 2 || sechs == 3 && fuenf == 2) {
             rb_full_house.setEnabled(true);
         } else {
-            rb_full_house.setEnabled(false);
             rb_full_house.setSelected(false);
+            rb_full_house.setEnabled(false);
         }
         pruefen();
     }
@@ -833,7 +909,7 @@ public class Spielbrett extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
