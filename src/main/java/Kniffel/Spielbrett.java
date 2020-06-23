@@ -380,6 +380,19 @@ public class Spielbrett extends javax.swing.JFrame {
         );
 
         pack();
+        rb_chang.setEnabled(false);
+        rb_knfl.setEnabled(false);
+        rb_gr_str.setEnabled(false);
+        rb_kln_str.setEnabled(false);
+        rb_full_house.setEnabled(false);
+        rb_3er_par.setEnabled(false);
+        rb_4er_par.setEnabled(false);
+        rb_1er.setEnabled(false);
+        rb_2er.setEnabled(false);
+        rb_3er.setEnabled(false);
+        rb_4er.setEnabled(false);
+        rb_5er.setEnabled(false);
+        rb_6er.setEnabled(false);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_wuerfelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_wuerfelnMouseClicked
