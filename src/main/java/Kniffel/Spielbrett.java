@@ -640,6 +640,7 @@ public class Spielbrett extends javax.swing.JFrame {
         lbl_ges_oben_erneut.setText(String.valueOf(int_ges_oben));
         lbl_ges_unt.setText(String.valueOf(int_ges_unten));
         lbl_ges.setText(String.valueOf(int_ges_oben + int_ges_unten));
+        auswerten();
     }
 
 
