@@ -397,7 +397,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
     private void btn_wuerfelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_wuerfelnMouseClicked
 
-        if (wuerfel1.enabled == true) {
+        if (wuerfel1.enabled) {
             switch (wuerfel1.randomWuerfel()) {
                 case 0:
                     lbl_wuerfel1.setIcon(icow1);
@@ -418,9 +418,8 @@ public class Spielbrett extends javax.swing.JFrame {
                     lbl_wuerfel1.setIcon(icow6);
                     break;
             }
-        } else {
         }
-        if (wuerfel2.enabled == true) {
+        if (wuerfel2.enabled) {
             switch (wuerfel2.randomWuerfel()) {
                 case 0:
                     lbl_wuerfel2.setIcon(icow1);
@@ -442,7 +441,7 @@ public class Spielbrett extends javax.swing.JFrame {
                     break;
             }
         }
-        if (wuerfel3.enabled == true) {
+        if (wuerfel3.enabled) {
             switch (wuerfel3.randomWuerfel()) {
                 case 0:
                     lbl_wuerfel3.setIcon(icow1);
@@ -464,7 +463,7 @@ public class Spielbrett extends javax.swing.JFrame {
                     break;
             }
         }
-        if (wuerfel4.enabled == true) {
+        if (wuerfel4.enabled) {
             switch (wuerfel4.randomWuerfel()) {
                 case 0:
                     lbl_wuerfel4.setIcon(icow1);
@@ -486,7 +485,7 @@ public class Spielbrett extends javax.swing.JFrame {
                     break;
             }
         }
-        if (wuerfel5.enabled == true) {
+        if (wuerfel5.enabled) {
             switch (wuerfel5.randomWuerfel()) {
                 case 0:
                     lbl_wuerfel5.setIcon(icow1);
@@ -512,7 +511,7 @@ public class Spielbrett extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_wuerfelnMouseClicked
 
     private void lbl_wuerfel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel1MouseClicked
-        if (wuerfel1.enabled == false) {
+        if (!(wuerfel1.enabled)) {
             wuerfel1.enabled = true;
             lbl_wuerfel1.setBorder(null);
         } else {
@@ -522,7 +521,7 @@ public class Spielbrett extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_wuerfel1MouseClicked
 
     private void lbl_wuerfel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel2MouseClicked
-        if (wuerfel2.enabled == false) {
+        if (!(wuerfel2.enabled)) {
             wuerfel2.enabled = true;
             lbl_wuerfel2.setBorder(null);
         } else {
@@ -532,7 +531,7 @@ public class Spielbrett extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_wuerfel2MouseClicked
 
     private void lbl_wuerfel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel3MouseClicked
-        if (wuerfel3.enabled == false) {
+        if (!(wuerfel3.enabled)) {
             wuerfel3.enabled = true;
             lbl_wuerfel3.setBorder(null);
         } else {
@@ -542,7 +541,7 @@ public class Spielbrett extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_wuerfel3MouseClicked
 
     private void lbl_wuerfel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel4MouseClicked
-        if (wuerfel4.enabled == false) {
+        if (!(wuerfel4.enabled)) {
             wuerfel4.enabled = true;
             lbl_wuerfel4.setBorder(null);
         } else {
@@ -552,7 +551,7 @@ public class Spielbrett extends javax.swing.JFrame {
     }//GEN-LAST:event_lbl_wuerfel4MouseClicked
 
     private void lbl_wuerfel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel5MouseClicked
-        if (wuerfel5.enabled == false) {
+        if (!(wuerfel5.enabled)) {
             wuerfel5.enabled = true;
             lbl_wuerfel5.setBorder(null);
         } else {
@@ -596,7 +595,6 @@ public class Spielbrett extends javax.swing.JFrame {
 
         int int_ges_oben = 0;
         int int_ges_unten = 0;
-        int int_ges = 0;
 
         if (!(lbl_1er.getText().equals(""))) {
             int int_1er = Integer.parseInt(lbl_1er.getText());
