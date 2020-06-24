@@ -17,11 +17,13 @@ public class Spieler {
     private int pkt_grosstr;
     private int pkt_kniffel;
     private int pkt_chance;
+    private int pkt_ges;
 
 
     public Spieler(String name, int nummer) {
         this.name = name;
         this.nummer = nummer;
+        this.pkt_ges = 0;
 
     }
 
@@ -39,6 +41,10 @@ public class Spieler {
         this.pkt_grosstr = pkt_grosstr;
         this.pkt_kniffel = pkt_kniffel;
         this.pkt_chance = pkt_chance;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getPkt_1er() {
@@ -91,5 +97,13 @@ public class Spieler {
 
     public int getPkt_chance() {
         return pkt_chance;
+    }
+
+    public boolean isFinished() {
+        if ((pkt_1er > 0) && (pkt_2er > 0) && (pkt_3er > 0) && (pkt_4er > 0) && (pkt_5er > 0) && (pkt_6er > 0) && (pkt_3er_pash > 0) && (pkt_4er_pash > 0) && (pkt_fullhouse > 0) && (pkt_kleinestr > 0) && (pkt_grosstr > 0) && (pkt_kniffel > 0) && (pkt_chance > 0)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

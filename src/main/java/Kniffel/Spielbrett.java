@@ -11,11 +11,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.time.Clock;
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
+import javax.swing.*;
 
 /**
- *
  * @author bekra
  */
 public class Spielbrett extends javax.swing.JFrame {
@@ -33,17 +31,24 @@ public class Spielbrett extends javax.swing.JFrame {
     ImageIcon icow5 = new ImageIcon(getClass().getClassLoader().getResource("fuenf.png"));
     ImageIcon icow6 = new ImageIcon(getClass().getClassLoader().getResource("sechs.png"));
 
+
     private int eins, zwei, drei, vier, fuenf, sechs;
+
+    private static int player_at_turn = 0;
+
+    private int count = 0;
 
     public boolean gv_pressed;
 
     public int x_pressed = 0;
     public int y_pressed = 0;
+    public static Spieler[] spieler;
 
     /**
      * Creates new form Spielbrett
      */
     public Spielbrett() {
+
         initComponents();
         ImageIcon ico = new ImageIcon(getClass().getClassLoader().getResource("Kniffel_block.jpg"));
         ico.setImage(ico.getImage().getScaledInstance(jLabel1.getWidth(), jLabel1.getHeight(), Image.SCALE_SMOOTH));
@@ -95,6 +100,7 @@ public class Spielbrett extends javax.swing.JFrame {
         lbl_wuerfel3 = new javax.swing.JLabel();
         lbl_wuerfel4 = new javax.swing.JLabel();
         lbl_wuerfel5 = new javax.swing.JLabel();
+        lbl_turn = new javax.swing.JLabel();
         btn_wuerfeln = new javax.swing.JButton();
         rb_1er = new javax.swing.JRadioButton();
         rb_2er = new javax.swing.JRadioButton();
@@ -215,6 +221,11 @@ public class Spielbrett extends javax.swing.JFrame {
         jPanel1.add(jLabel1);
         jLabel1.setBounds(0, 0, 450, 630);
 
+        lbl_turn.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_turn.setRequestFocusEnabled(false);
+        jPanel1.add(lbl_turn);
+        lbl_turn.setBounds(0, 0, 60, 20);
+
         lbl_wuerfel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_wuerfel1MouseClicked(evt);
@@ -303,209 +314,218 @@ public class Spielbrett extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rb_6er)
-                    .addComponent(rb_3er_par)
-                    .addComponent(rb_1er)
-                    .addComponent(rb_2er)
-                    .addComponent(rb_3er)
-                    .addComponent(rb_4er_par)
-                    .addComponent(rb_full_house)
-                    .addComponent(rb_kln_str)
-                    .addComponent(rb_gr_str)
-                    .addComponent(rb_knfl)
-                    .addComponent(rb_4er)
-                    .addComponent(rb_5er)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(rb_chang, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jButton1)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rb_6er)
+                                        .addComponent(rb_3er_par)
+                                        .addComponent(rb_1er)
+                                        .addComponent(rb_2er)
+                                        .addComponent(rb_3er)
+                                        .addComponent(rb_4er_par)
+                                        .addComponent(rb_full_house)
+                                        .addComponent(rb_kln_str)
+                                        .addComponent(rb_gr_str)
+                                        .addComponent(rb_knfl)
+                                        .addComponent(rb_4er)
+                                        .addComponent(rb_5er)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(rb_chang, javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                        .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addGroup(layout.createSequentialGroup()
+                                                                        .addGap(10, 10, 10)
+                                                                        .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addGap(94, 94, 94)
+                                                .addComponent(jButton1))
+                                        .addComponent(lbl_turn))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_1er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_2er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_3er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_4er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_5er)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_6er)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_3er_par)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_4er_par)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_full_house)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_kln_str)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_gr_str)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rb_knfl)
-                        .addGap(18, 18, 18)
-                        .addComponent(rb_chang)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE))
-                .addContainerGap())
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbl_turn)
+                                                .addGap(0, 0, Short.MAX_VALUE)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                        .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel4, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(lbl_wuerfel5, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(btn_wuerfeln, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rb_1er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_2er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_3er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_4er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_5er)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_6er)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rb_3er_par)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_4er_par)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_full_house)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_kln_str)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_gr_str)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(rb_knfl)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(rb_chang)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(jButton1))
+                                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 764, Short.MAX_VALUE))
+                                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_wuerfelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_wuerfelnMouseClicked
+        if (!(count >= 3)) {
+            if (wuerfel1.enabled == true) {
+                switch (wuerfel1.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel1.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel1.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel1.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel1.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel1.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel1.setIcon(icow6);
+                        break;
+                }
+            } else {
+            }
+            if (wuerfel2.enabled == true) {
+                switch (wuerfel2.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel2.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel2.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel2.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel2.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel2.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel2.setIcon(icow6);
+                        break;
+                }
+            }
+            if (wuerfel3.enabled == true) {
+                switch (wuerfel3.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel3.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel3.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel3.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel3.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel3.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel3.setIcon(icow6);
+                        break;
+                }
+            }
+            if (wuerfel4.enabled == true) {
+                switch (wuerfel4.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel4.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel4.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel4.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel4.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel4.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel4.setIcon(icow6);
+                        break;
+                }
+            }
+            if (wuerfel5.enabled == true) {
+                switch (wuerfel5.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel5.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel5.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel5.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel5.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel5.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel5.setIcon(icow6);
+                        break;
+                }
+            }
+            count++;
+            auswerten();
+        }
+        if (count >= 3) {
+            btn_wuerfeln.setEnabled(false);
+        }
 
-        if (wuerfel1.enabled == true) {
-            switch (wuerfel1.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel1.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel1.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel1.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel1.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel1.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel1.setIcon(icow6);
-                    break;
-            }
-        } else {
-        }
-        if (wuerfel2.enabled == true) {
-            switch (wuerfel2.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel2.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel2.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel2.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel2.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel2.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel2.setIcon(icow6);
-                    break;
-            }
-        }
-        if (wuerfel3.enabled == true) {
-            switch (wuerfel3.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel3.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel3.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel3.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel3.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel3.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel3.setIcon(icow6);
-                    break;
-            }
-        }
-        if (wuerfel4.enabled == true) {
-            switch (wuerfel4.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel4.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel4.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel4.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel4.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel4.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel4.setIcon(icow6);
-                    break;
-            }
-        }
-        if (wuerfel5.enabled == true) {
-            switch (wuerfel5.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel5.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel5.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel5.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel5.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel5.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel5.setIcon(icow6);
-                    break;
-            }
-        }
-        auswerten();
+
     }//GEN-LAST:event_btn_wuerfelnMouseClicked
 
     private void lbl_wuerfel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel1MouseClicked
@@ -578,20 +598,30 @@ public class Spielbrett extends javax.swing.JFrame {
         } else if (rb_4er_par.isSelected() && rb_4er_par.isEnabled()) {
             int int_4er_par = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;
             lbl_4er_psh.setText(String.valueOf(int_4er_par));
-        } else if (rb_full_house.isSelected()) {
+        } else if (rb_full_house.isSelected() && rb_full_house.isEnabled()) {
             lbl_fullhouse.setText(String.valueOf(25));
-        } else if (rb_kln_str.isSelected()) {
+        } else if (rb_kln_str.isSelected() && rb_kln_str.isEnabled()) {
             lbl_kln_str.setText(String.valueOf(30));
-        } else if (rb_gr_str.isSelected()) {
+        } else if (rb_gr_str.isSelected() && rb_gr_str.isEnabled()) {
             lbl_grs_str.setText(String.valueOf(40));
-        } else if (rb_knfl.isSelected()) {
+        } else if (rb_knfl.isSelected() && rb_knfl.isEnabled()) {
             lbl_knfl.setText(String.valueOf(50));
-        } else if (rb_chang.isSelected()) {
+        } else if (rb_chang.isSelected() && rb_chang.isEnabled()) {
             int int_chang = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;
             lbl_chnc.setText(String.valueOf(int_chang));
         }
 
 
+        auswerten();
+        zuruecksetzten();
+        savePoints();
+        changePlayer();
+        loadPoints();
+        rechnen();
+        btn_wuerfelnMouseClicked(evt);
+    }
+
+    private void rechnen() {
         int int_ges_oben = 0;
         int int_ges_unten = 0;
 
@@ -650,7 +680,6 @@ public class Spielbrett extends javax.swing.JFrame {
         lbl_ges_oben_erneut.setText(String.valueOf(int_ges_oben));
         lbl_ges_unt.setText(String.valueOf(int_ges_unten));
         lbl_ges.setText(String.valueOf(int_ges_oben + int_ges_unten));
-        auswerten();
     }
 
     private void auswerten() {
@@ -741,6 +770,7 @@ public class Spielbrett extends javax.swing.JFrame {
             rb_full_house.setSelected(false);
         }
         pruefen();
+
     }
 
     private void zusammenzählen() {
@@ -912,6 +942,201 @@ public class Spielbrett extends javax.swing.JFrame {
         }
     }
 
+    private static void newGame() {
+
+        spieler = null;
+        int int_spieler;
+        do {
+            int_spieler = 0;
+            String anz_spieler = JOptionPane.showInputDialog("Anzahl an Spieler?(max.4)", "");
+            int_spieler = Integer.parseInt(anz_spieler);
+        } while (-1 > int_spieler && int_spieler > 4);
+        spieler = new Spieler[int_spieler];
+
+        for (int x = 0; x < int_spieler; x++) {
+            String name_spieler = JOptionPane.showInputDialog("Name von Spieler " + (x + 1), "");
+            spieler[x] = new Spieler(name_spieler, x);
+        }
+        player_at_turn = 0;
+        showName();
+        loadPoints();
+    }
+
+    private void zuruecksetzten() {
+        wuerfel1.enabled = true;
+        wuerfel2.enabled = true;
+        wuerfel3.enabled = true;
+        wuerfel4.enabled = true;
+        wuerfel5.enabled = true;
+    }
+
+    private void changeTurn() {
+        int ar_leng = spieler.length - 1;
+        player_at_turn++;
+        if (player_at_turn > ar_leng) {
+            player_at_turn = 0;
+        }
+    }
+
+    private void engageWin() {
+
+    }
+
+    private void changePlayer() {
+        int count_fin = 1;
+        for (Spieler spieler : spieler) {
+            if (spieler.isFinished()) {
+                count_fin += 1;
+            }
+        }
+        if (count_fin == spieler.length) {
+            engageWin();
+        }
+        changeTurn();
+        Spieler aktu = spieler[player_at_turn];
+        while (aktu.isFinished()) {
+            changeTurn();
+            aktu = spieler[player_at_turn];
+        }
+
+        count = 0;
+        btn_wuerfeln.setEnabled(true);
+
+        showName();
+    }
+
+    private static void showName() {
+        Spieler aktu_spiel = spieler[player_at_turn];
+        lbl_turn.setText("      " + aktu_spiel.getName() + " ist dran!");
+    }
+
+    private void savePoints() {
+        int int_1er = 0;
+        int int_2er = 0;
+        int int_3er = 0;
+        int int_4er = 0;
+        int int_5er = 0;
+        int int_6er = 0;
+        int int_3er_psh = 0;
+        int int_4er_psh = 0;
+        int int_full_house = 0;
+        int int_kln_str = 0;
+        int int_grs_str = 0;
+        int int_knfl = 0;
+        int int_chang = 0;
+
+        Spieler aktu_spiel = spieler[player_at_turn];
+        if (!(lbl_1er.getText().equals(""))) {
+            int_1er = Integer.parseInt(lbl_1er.getText());
+        }
+        if (!(lbl_2er.getText().equals(""))) {
+            int_2er = Integer.parseInt(lbl_2er.getText());
+        }
+        if (!(lbl_3er.getText().equals(""))) {
+            int_3er = Integer.parseInt(lbl_3er.getText());
+        }
+        if (!(lbl_4er.getText().equals(""))) {
+            int_4er = Integer.parseInt(lbl_4er.getText());
+        }
+        if (!(lbl_5er.getText().equals(""))) {
+            int_5er = Integer.parseInt(lbl_5er.getText());
+        }
+        if (!(lbl_6er.getText().equals(""))) {
+            int_6er = Integer.parseInt(lbl_6er.getText());
+        }
+        if (!(lbl_3er_psh.getText().equals(""))) {
+            int_3er_psh = Integer.parseInt(lbl_3er_psh.getText());
+        }
+        if (!(lbl_4er_psh.getText().equals(""))) {
+            int_4er_psh = Integer.parseInt(lbl_4er_psh.getText());
+        }
+        if (!(lbl_fullhouse.getText().equals(""))) {
+            int_full_house = Integer.parseInt(lbl_fullhouse.getText());
+        }
+        if (!(lbl_kln_str.getText().equals(""))) {
+            int_kln_str = Integer.parseInt(lbl_kln_str.getText());
+        }
+        if (!(lbl_grs_str.getText().equals(""))) {
+            int_grs_str = Integer.parseInt(lbl_grs_str.getText());
+        }
+        if (!(lbl_knfl.getText().equals(""))) {
+            int_knfl = Integer.parseInt(lbl_knfl.getText());
+        }
+        if (!(lbl_chnc.getText().equals(""))) {
+            int_chang = Integer.parseInt(lbl_chnc.getText());
+        }
+        aktu_spiel.setPunkte(int_1er, int_2er, int_3er, int_4er, int_5er, int_6er, int_3er_psh, int_4er_psh, int_full_house, int_kln_str, int_grs_str, int_knfl, int_chang);
+    }
+
+    public static void loadPoints() {
+        Spieler aktu_spiel = spieler[player_at_turn];
+        if (aktu_spiel.getPkt_1er() > 0) {
+            lbl_1er.setText(String.valueOf(aktu_spiel.getPkt_1er()));
+        } else {
+            lbl_1er.setText("");
+        }
+        if (aktu_spiel.getPkt_2er() > 0) {
+            lbl_2er.setText(String.valueOf(aktu_spiel.getPkt_2er()));
+        } else {
+            lbl_2er.setText("");
+        }
+        if (aktu_spiel.getPkt_3er() > 0) {
+            lbl_3er.setText(String.valueOf(aktu_spiel.getPkt_3er()));
+        } else {
+            lbl_3er.setText("");
+        }
+        if (aktu_spiel.getPkt_4er() > 0) {
+            lbl_4er.setText(String.valueOf(aktu_spiel.getPkt_4er()));
+        } else {
+            lbl_4er.setText("");
+        }
+        if (aktu_spiel.getPkt_5er() > 0) {
+            lbl_5er.setText(String.valueOf(aktu_spiel.getPkt_5er()));
+        } else {
+            lbl_5er.setText("");
+        }
+        if (aktu_spiel.getPkt_6er() > 0) {
+            lbl_6er.setText(String.valueOf(aktu_spiel.getPkt_6er()));
+        } else {
+            lbl_6er.setText("");
+        }
+        if (aktu_spiel.getPkt_3er_pash() > 0) {
+            lbl_3er_psh.setText(String.valueOf(aktu_spiel.getPkt_3er_pash()));
+        } else {
+            lbl_3er_psh.setText("");
+        }
+        if (aktu_spiel.getPkt_4er_pash() > 0) {
+            lbl_4er_psh.setText(String.valueOf(aktu_spiel.getPkt_4er_pash()));
+        } else {
+            lbl_4er_psh.setText("");
+        }
+        if (aktu_spiel.getPkt_fullhouse() > 0) {
+            lbl_fullhouse.setText(String.valueOf(aktu_spiel.getPkt_fullhouse()));
+        } else {
+            lbl_fullhouse.setText("");
+        }
+        if (aktu_spiel.getPkt_kleinestr() > 0) {
+            lbl_kln_str.setText(String.valueOf(aktu_spiel.getPkt_kleinestr()));
+        } else {
+            lbl_kln_str.setText("");
+        }
+        if (aktu_spiel.getPkt_grosstr() > 0) {
+            lbl_grs_str.setText(String.valueOf(aktu_spiel.getPkt_grosstr()));
+        } else {
+            lbl_grs_str.setText("");
+        }
+        if (aktu_spiel.getPkt_kniffel() > 0) {
+            lbl_knfl.setText(String.valueOf(aktu_spiel.getPkt_kniffel()));
+        } else {
+            lbl_knfl.setText("");
+        }
+        if (aktu_spiel.getPkt_chance() > 0) {
+            lbl_chnc.setText(String.valueOf(aktu_spiel.getPkt_chance()));
+        } else {
+            lbl_chnc.setText("");
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -919,7 +1144,7 @@ public class Spielbrett extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -942,8 +1167,9 @@ public class Spielbrett extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> {
             new Spielbrett().setVisible(true);
+            JOptionPane.showMessageDialog(null, "Dies ist ein Projekt von Monika Klajmon, Milan Kroppenberg und Benedikt Krauß", "Kniffel", 1);
+            newGame();
         });
-
     }
 
 
@@ -953,30 +1179,31 @@ public class Spielbrett extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel lbl_1er;
-    private javax.swing.JLabel lbl_2er;
-    private javax.swing.JLabel lbl_3er;
-    private javax.swing.JLabel lbl_3er_psh;
-    private javax.swing.JLabel lbl_4er;
-    private javax.swing.JLabel lbl_4er_psh;
-    private javax.swing.JLabel lbl_5er;
-    private javax.swing.JLabel lbl_6er;
-    private javax.swing.JLabel lbl_bonus;
-    private javax.swing.JLabel lbl_chnc;
-    private javax.swing.JLabel lbl_fullhouse;
-    private javax.swing.JLabel lbl_ges;
-    private javax.swing.JLabel lbl_ges_oben;
-    private javax.swing.JLabel lbl_ges_oben_erneut;
-    private javax.swing.JLabel lbl_ges_unt;
-    private javax.swing.JLabel lbl_grs_str;
-    private javax.swing.JLabel lbl_kln_str;
-    private javax.swing.JLabel lbl_knfl;
-    private javax.swing.JLabel lbl_wuerfel1;
-    private javax.swing.JLabel lbl_wuerfel2;
-    private javax.swing.JLabel lbl_wuerfel3;
-    private javax.swing.JLabel lbl_wuerfel4;
-    private javax.swing.JLabel lbl_wuerfel5;
-    private javax.swing.JLabel lbl_zws_oben;
+    private static javax.swing.JLabel lbl_1er;
+    private static javax.swing.JLabel lbl_2er;
+    private static javax.swing.JLabel lbl_3er;
+    private static javax.swing.JLabel lbl_3er_psh;
+    private static javax.swing.JLabel lbl_4er;
+    private static javax.swing.JLabel lbl_4er_psh;
+    private static javax.swing.JLabel lbl_5er;
+    private static javax.swing.JLabel lbl_6er;
+    private static javax.swing.JLabel lbl_bonus;
+    private static javax.swing.JLabel lbl_chnc;
+    private static javax.swing.JLabel lbl_fullhouse;
+    private static javax.swing.JLabel lbl_ges;
+    private static javax.swing.JLabel lbl_ges_oben;
+    private static javax.swing.JLabel lbl_ges_oben_erneut;
+    private static javax.swing.JLabel lbl_ges_unt;
+    private static javax.swing.JLabel lbl_grs_str;
+    private static javax.swing.JLabel lbl_kln_str;
+    private static javax.swing.JLabel lbl_knfl;
+    private static javax.swing.JLabel lbl_wuerfel1;
+    private static javax.swing.JLabel lbl_wuerfel2;
+    private static javax.swing.JLabel lbl_wuerfel3;
+    private static javax.swing.JLabel lbl_wuerfel4;
+    private static javax.swing.JLabel lbl_wuerfel5;
+    private static javax.swing.JLabel lbl_zws_oben;
+    private static javax.swing.JLabel lbl_turn;
     private javax.swing.JRadioButton rb_1er;
     private javax.swing.JRadioButton rb_2er;
     private javax.swing.JRadioButton rb_3er;
