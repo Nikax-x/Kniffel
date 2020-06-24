@@ -550,6 +550,7 @@ public class Spielbrett extends javax.swing.JFrame {
         } else {
             wuerfel5.enabled = false;
             lbl_wuerfel5.setLocation(lbl_wuerfel5.getX(), lbl_wuerfel5.getY() - 54);
+            System.out.println("Benedikt ist doof");
         }
     }//GEN-LAST:event_lbl_wuerfel5MouseClicked
 
