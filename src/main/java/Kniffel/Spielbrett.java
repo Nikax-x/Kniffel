@@ -246,6 +246,12 @@ public class Spielbrett extends javax.swing.JFrame {
             }
         });
 
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+
         btngrp1.add(rb_1er);
         rb_1er.setText("1er");
 
