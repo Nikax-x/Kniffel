@@ -7,6 +7,10 @@ package Kniffel;
 
 import java.awt.Color;
 import java.awt.Image;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.time.Clock;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
@@ -31,6 +35,11 @@ public class Spielbrett extends javax.swing.JFrame {
 
     private int eins, zwei, drei, vier, fuenf, sechs;
 
+    public boolean gv_pressed;
+
+    public int x_pressed = 0;
+    public int y_pressed = 0;
+
     /**
      * Creates new form Spielbrett
      */
@@ -46,6 +55,7 @@ public class Spielbrett extends javax.swing.JFrame {
         icow4.setImage(icow4.getImage().getScaledInstance(lbl_wuerfel1.getWidth(), lbl_wuerfel1.getHeight(), Image.SCALE_SMOOTH));
         icow5.setImage(icow5.getImage().getScaledInstance(lbl_wuerfel1.getWidth(), lbl_wuerfel1.getHeight(), Image.SCALE_SMOOTH));
         icow6.setImage(icow6.getImage().getScaledInstance(lbl_wuerfel1.getWidth(), lbl_wuerfel1.getHeight(), Image.SCALE_SMOOTH));
+
 
     }
 
@@ -495,50 +505,51 @@ public class Spielbrett extends javax.swing.JFrame {
     private void lbl_wuerfel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel1MouseClicked
         if (wuerfel1.enabled == false) {
             wuerfel1.enabled = true;
-            lbl_wuerfel1.setBorder(null);
+            lbl_wuerfel1.setLocation(lbl_wuerfel1.getX(), lbl_wuerfel1.getY() + 54);
         } else {
             wuerfel1.enabled = false;
-            lbl_wuerfel1.setBorder(BorderFactory.createLineBorder(Color.black));
+            lbl_wuerfel1.setLocation(lbl_wuerfel1.getX(), lbl_wuerfel1.getY() - 54);
         }
+        lbl_wuerfel1.repaint();
     }//GEN-LAST:event_lbl_wuerfel1MouseClicked
 
     private void lbl_wuerfel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel2MouseClicked
         if (wuerfel2.enabled == false) {
             wuerfel2.enabled = true;
-            lbl_wuerfel2.setBorder(null);
+            lbl_wuerfel2.setLocation(lbl_wuerfel2.getX(), lbl_wuerfel2.getY() + 54);
         } else {
             wuerfel2.enabled = false;
-            lbl_wuerfel2.setBorder(BorderFactory.createLineBorder(Color.black));
+            lbl_wuerfel2.setLocation(lbl_wuerfel2.getX(), lbl_wuerfel2.getY() - 54);
         }
     }//GEN-LAST:event_lbl_wuerfel2MouseClicked
 
     private void lbl_wuerfel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel3MouseClicked
         if (wuerfel3.enabled == false) {
             wuerfel3.enabled = true;
-            lbl_wuerfel3.setBorder(null);
+            lbl_wuerfel3.setLocation(lbl_wuerfel3.getX(), lbl_wuerfel3.getY() + 54);
         } else {
             wuerfel3.enabled = false;
-            lbl_wuerfel3.setBorder(BorderFactory.createLineBorder(Color.black));
+            lbl_wuerfel3.setLocation(lbl_wuerfel3.getX(), lbl_wuerfel3.getY() - 54);
         }
     }//GEN-LAST:event_lbl_wuerfel3MouseClicked
 
     private void lbl_wuerfel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel4MouseClicked
         if (wuerfel4.enabled == false) {
             wuerfel4.enabled = true;
-            lbl_wuerfel4.setBorder(null);
+            lbl_wuerfel4.setLocation(lbl_wuerfel4.getX(), lbl_wuerfel4.getY() + 54);
         } else {
             wuerfel4.enabled = false;
-            lbl_wuerfel4.setBorder(BorderFactory.createLineBorder(Color.black));
+            lbl_wuerfel4.setLocation(lbl_wuerfel4.getX(), lbl_wuerfel4.getY() - 54);
         }
     }//GEN-LAST:event_lbl_wuerfel4MouseClicked
 
     private void lbl_wuerfel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel5MouseClicked
         if (wuerfel5.enabled == false) {
             wuerfel5.enabled = true;
-            lbl_wuerfel5.setBorder(null);
+            lbl_wuerfel5.setLocation(lbl_wuerfel5.getX(), lbl_wuerfel5.getY() + 54);
         } else {
             wuerfel5.enabled = false;
-            lbl_wuerfel5.setBorder(BorderFactory.createLineBorder(Color.black));
+            lbl_wuerfel5.setLocation(lbl_wuerfel5.getX(), lbl_wuerfel5.getY() - 54);
         }
     }//GEN-LAST:event_lbl_wuerfel5MouseClicked
 
