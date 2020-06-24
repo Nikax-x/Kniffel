@@ -559,6 +559,100 @@ public class Spielbrett extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_lbl_wuerfel5MouseClicked
 
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
+        if (rb_1er.isSelected() && rb_1er.isEnabled()) {
+            lbl_1er.setText(String.valueOf(eins));
+        } else if (rb_2er.isSelected() && rb_2er.isEnabled()) {
+            lbl_2er.setText(String.valueOf(2 * zwei));
+        } else if (rb_3er.isSelected() && rb_3er.isEnabled()) {
+            lbl_3er.setText(String.valueOf(3 * drei));
+        } else if (rb_4er.isSelected() && rb_4er.isEnabled()) {
+            lbl_4er.setText(String.valueOf(4 * vier));
+        } else if (rb_5er.isSelected() && rb_5er.isEnabled()) {
+            lbl_5er.setText(String.valueOf(5 * fuenf));
+        } else if (rb_6er.isSelected() && rb_6er.isEnabled()) {
+            lbl_6er.setText(String.valueOf(6 * sechs));
+        } else if (rb_3er_par.isSelected() && rb_3er_par.isEnabled()) {
+            int int_3er_par = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;//da die Augenzahl -1 von der gezeigten zahl ist muss bei jedem Würfel +1 gerechnet werden. Bei 5 Würfeln also +5
+            lbl_3er_psh.setText(String.valueOf(int_3er_par));
+        } else if (rb_4er_par.isSelected() && rb_4er_par.isEnabled()) {
+            int int_4er_par = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;
+            lbl_4er_psh.setText(String.valueOf(int_4er_par));
+        } else if (rb_full_house.isSelected()) {
+            lbl_fullhouse.setText(String.valueOf(25));
+        } else if (rb_kln_str.isSelected()) {
+            lbl_kln_str.setText(String.valueOf(30));
+        } else if (rb_gr_str.isSelected()) {
+            lbl_grs_str.setText(String.valueOf(40));
+        } else if (rb_knfl.isSelected()) {
+            lbl_knfl.setText(String.valueOf(50));
+        } else if (rb_chang.isSelected()) {
+            int int_chang = wuerfel1.getAugenzahl() + wuerfel2.getAugenzahl() + wuerfel3.getAugenzahl() + wuerfel4.getAugenzahl() + wuerfel5.getAugenzahl() + 5;
+            lbl_chnc.setText(String.valueOf(int_chang));
+        }
+
+
+        int int_ges_oben = 0;
+        int int_ges_unten = 0;
+
+        if (!(lbl_1er.getText().equals(""))) {
+            int int_1er = Integer.parseInt(lbl_1er.getText());
+            int_ges_oben += int_1er;
+        }
+        if (!(lbl_2er.getText().equals(""))) {
+            int int_2er = Integer.parseInt(lbl_2er.getText());
+            int_ges_oben += int_2er;
+        }
+        if (!(lbl_3er.getText().equals(""))) {
+            int int_3er = Integer.parseInt(lbl_3er.getText());
+            int_ges_oben += int_3er;
+        }
+        if (!(lbl_4er.getText().equals(""))) {
+            int int_4er = Integer.parseInt(lbl_4er.getText());
+            int_ges_oben += int_4er;
+        }
+        if (!(lbl_5er.getText().equals(""))) {
+            int int_5er = Integer.parseInt(lbl_5er.getText());
+            int_ges_oben += int_5er;
+        }
+        if (!(lbl_6er.getText().equals(""))) {
+            int int_6er = Integer.parseInt(lbl_6er.getText());
+            int_ges_oben += int_6er;
+        }
+        lbl_zws_oben.setText(String.valueOf(int_ges_oben));
+        if (int_ges_oben >= 63) {
+            int_ges_oben += 35;
+            lbl_bonus.setText(String.valueOf(35));
+        }
+        lbl_ges_oben.setText(String.valueOf(int_ges_oben));
+
+        if (!(lbl_3er_psh.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_3er_psh.getText());
+        }
+        if (!(lbl_4er_psh.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_4er_psh.getText());
+        }
+        if (!(lbl_fullhouse.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_fullhouse.getText());
+        }
+        if (!(lbl_kln_str.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_kln_str.getText());
+        }
+        if (!(lbl_grs_str.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_grs_str.getText());
+        }
+        if (!(lbl_knfl.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_knfl.getText());
+        }
+        if (!(lbl_chnc.getText().equals(""))) {
+            int_ges_unten += Integer.parseInt(lbl_chnc.getText());
+        }
+        lbl_ges_oben_erneut.setText(String.valueOf(int_ges_oben));
+        lbl_ges_unt.setText(String.valueOf(int_ges_unten));
+        lbl_ges.setText(String.valueOf(int_ges_oben + int_ges_unten));
+        auswerten();
+    }
+
     private void auswerten() {
         zusammenzählen();
         if (eins == 5 || zwei == 5 || drei == 5 || vier == 5 || fuenf == 5 || sechs == 5) {
