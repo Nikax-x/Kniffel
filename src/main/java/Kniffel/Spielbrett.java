@@ -35,7 +35,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
     private int eins, zwei, drei, vier, fuenf, sechs;
 
-    /*
+    /**
      * Creates new form Spielbrett
      */
     public Spielbrett() {
