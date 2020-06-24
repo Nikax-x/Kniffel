@@ -376,120 +376,126 @@ public class Spielbrett extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+
+
+int counter = 0;
     private void btn_wuerfelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_wuerfelnMouseClicked
 
-        if (wuerfel1.enabled == true) {
-            switch (wuerfel1.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel1.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel1.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel1.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel1.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel1.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel1.setIcon(icow6);
-                    break;
-            }
+        if (counter >= 3) {
         } else {
-        }
-        if (wuerfel2.enabled == true) {
-            switch (wuerfel2.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel2.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel2.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel2.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel2.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel2.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel2.setIcon(icow6);
-                    break;
+            if (wuerfel1.enabled == true) {
+                switch (wuerfel1.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel1.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel1.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel1.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel1.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel1.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel1.setIcon(icow6);
+                        break;
+                }
+            } else {
             }
-        }
-        if (wuerfel3.enabled == true) {
-            switch (wuerfel3.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel3.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel3.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel3.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel3.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel3.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel3.setIcon(icow6);
-                    break;
+            if (wuerfel2.enabled == true) {
+                switch (wuerfel2.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel2.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel2.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel2.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel2.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel2.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel2.setIcon(icow6);
+                        break;
+                }
             }
-        }
-        if (wuerfel4.enabled == true) {
-            switch (wuerfel4.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel4.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel4.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel4.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel4.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel4.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel4.setIcon(icow6);
-                    break;
+            if (wuerfel3.enabled == true) {
+                switch (wuerfel3.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel3.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel3.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel3.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel3.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel3.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel3.setIcon(icow6);
+                        break;
+                }
             }
-        }
-        if (wuerfel5.enabled == true) {
-            switch (wuerfel5.randomWuerfel()) {
-                case 0:
-                    lbl_wuerfel5.setIcon(icow1);
-                    break;
-                case 1:
-                    lbl_wuerfel5.setIcon(icow2);
-                    break;
-                case 2:
-                    lbl_wuerfel5.setIcon(icow3);
-                    break;
-                case 3:
-                    lbl_wuerfel5.setIcon(icow4);
-                    break;
-                case 4:
-                    lbl_wuerfel5.setIcon(icow5);
-                    break;
-                case 5:
-                    lbl_wuerfel5.setIcon(icow6);
-                    break;
+            if (wuerfel4.enabled == true) {
+                switch (wuerfel4.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel4.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel4.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel4.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel4.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel4.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel4.setIcon(icow6);
+                        break;
+                }
             }
-        }
-        auswerten();
+            if (wuerfel5.enabled == true) {
+                switch (wuerfel5.randomWuerfel()) {
+                    case 0:
+                        lbl_wuerfel5.setIcon(icow1);
+                        break;
+                    case 1:
+                        lbl_wuerfel5.setIcon(icow2);
+                        break;
+                    case 2:
+                        lbl_wuerfel5.setIcon(icow3);
+                        break;
+                    case 3:
+                        lbl_wuerfel5.setIcon(icow4);
+                        break;
+                    case 4:
+                        lbl_wuerfel5.setIcon(icow5);
+                        break;
+                    case 5:
+                        lbl_wuerfel5.setIcon(icow6);
+                        break;
+                }
+            }
+            auswerten();
+        } counter++;
     }//GEN-LAST:event_btn_wuerfelnMouseClicked
 
     private void lbl_wuerfel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel1MouseClicked
