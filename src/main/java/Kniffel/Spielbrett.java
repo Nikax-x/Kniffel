@@ -8,10 +8,14 @@ package Kniffel;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.time.Clock;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 
 /**
+ *
  * @author bekra
  */
 public class Spielbrett extends javax.swing.JFrame {
@@ -242,12 +246,6 @@ public class Spielbrett extends javax.swing.JFrame {
             }
         });
 
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-
         btngrp1.add(rb_1er);
         rb_1er.setText("1er");
 
@@ -394,6 +392,9 @@ public class Spielbrett extends javax.swing.JFrame {
         rb_5er.setEnabled(false);
         rb_6er.setEnabled(false);
     }// </editor-fold>//GEN-END:initComponents
+
+
+    int counter = 0;
 
     private void btn_wuerfelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_wuerfelnMouseClicked
 
@@ -664,43 +665,43 @@ public class Spielbrett extends javax.swing.JFrame {
         }
 
         if (eins == 0) {
-            rb_1er.setSelected(false);
             rb_1er.setEnabled(false);
+            rb_1er.setSelected(false);
         } else {
             rb_1er.setEnabled(true);
         }
 
         if (zwei == 0) {
-            rb_2er.setSelected(false);
             rb_2er.setEnabled(false);
+            rb_2er.setSelected(false);
         } else {
             rb_2er.setEnabled(true);
         }
 
         if (drei == 0) {
-            rb_3er.setSelected(false);
             rb_3er.setEnabled(false);
+            rb_3er.setSelected(false);
         } else {
             rb_3er.setEnabled(true);
         }
 
         if (vier == 0) {
-            rb_4er.setSelected(false);
             rb_4er.setEnabled(false);
+            rb_4er.setSelected(false);
         } else {
             rb_4er.setEnabled(true);
         }
 
         if (fuenf == 0) {
-            rb_5er.setSelected(false);
             rb_5er.setEnabled(false);
+            rb_5er.setSelected(false);
         } else {
             rb_5er.setEnabled(true);
         }
 
         if (sechs == 0) {
-            rb_6er.setSelected(false);
             rb_6er.setEnabled(false);
+            rb_6er.setSelected(false);
         } else {
             rb_6er.setEnabled(true);
         }
@@ -708,27 +709,27 @@ public class Spielbrett extends javax.swing.JFrame {
         if (eins >= 3 || zwei >= 3 || drei >= 3 || vier >= 3 || fuenf >= 3 || sechs >= 3) {
             rb_3er_par.setEnabled(true);
         } else {
-            rb_3er_par.setSelected(false);
             rb_3er_par.setEnabled(false);
+            rb_3er_par.setSelected(false);
         }
 
         if (eins >= 4 || zwei >= 4 || drei >= 4 || vier >= 4 || fuenf >= 4 || sechs >= 4) {
             rb_4er_par.setEnabled(true);
         } else {
-            rb_4er_par.setSelected(false);
             rb_4er_par.setEnabled(false);
+            rb_4er_par.setSelected(false);
         }
         if (eins >= 1 && zwei >= 1 && drei >= 1 && vier >= 1 && fuenf >= 1 || zwei >= 1 && drei >= 1 && vier >= 1 && fuenf >= 1 && sechs >= 1) {
             rb_gr_str.setEnabled(true);
         } else {
-            rb_gr_str.setSelected(false);
             rb_gr_str.setEnabled(false);
+            rb_gr_str.setSelected(false);
         }
         if (eins >= 1 && zwei >= 1 && drei >= 1 && vier >= 1 || zwei >= 1 && drei >= 1 && vier >= 1 && fuenf >= 1 || drei >= 1 && vier >= 1 && fuenf >= 1 && sechs >= 1) {
             rb_kln_str.setEnabled(true);
         } else {
-            rb_kln_str.setSelected(false);
             rb_kln_str.setEnabled(false);
+            rb_kln_str.setSelected(false);
         }
 
         if (eins == 3 && zwei == 2 || eins == 3 && drei == 2 || eins == 3 && vier == 2 || eins == 3 && fuenf == 2 || eins == 3 && sechs == 2
@@ -739,8 +740,8 @@ public class Spielbrett extends javax.swing.JFrame {
                 || sechs == 3 && eins == 2 || sechs == 3 && zwei == 2 || sechs == 3 && drei == 2 || sechs == 3 && vier == 2 || sechs == 3 && fuenf == 2) {
             rb_full_house.setEnabled(true);
         } else {
-            rb_full_house.setSelected(false);
             rb_full_house.setEnabled(false);
+            rb_full_house.setSelected(false);
         }
         pruefen();
     }
