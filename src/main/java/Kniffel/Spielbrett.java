@@ -376,15 +376,12 @@ public class Spielbrett extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-public void Spielerwechsel(){
 
-}
 
 int counter = 0;
     private void btn_wuerfelnMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_wuerfelnMouseClicked
 
         if (counter >= 3) {
-            Spielerwechsel();
         } else {
             if (wuerfel1.enabled == true) {
                 switch (wuerfel1.randomWuerfel()) {
@@ -844,9 +841,8 @@ int counter = 0;
         });
 
 
-        Spieler spieler1 = new Spieler("spieler1");
-        Spieler spieler2 = new Spieler("spieler2");
     }
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
