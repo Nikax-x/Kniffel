@@ -37,7 +37,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
     private static int player_at_turn = 0;
 
-    private int count = 0;
+    private static int count = 0;
 
     public boolean gv_pressed;
 
@@ -708,7 +708,6 @@ public class Spielbrett extends javax.swing.JFrame {
         }
 
 
-        auswerten();
         zuruecksetzten();
         savePoints();
         changePlayer();
@@ -907,6 +906,7 @@ public class Spielbrett extends javax.swing.JFrame {
         int int_ges_oben = 0;
         int int_ges_unten = 0;
 
+
         if (!(lbl_1er.getText().equals("----"))) {
             int int_1er = Integer.parseInt(lbl_1er.getText());
             int_ges_oben += int_1er;
@@ -935,6 +935,8 @@ public class Spielbrett extends javax.swing.JFrame {
         if (int_ges_oben >= 63) {
             int_ges_oben += 35;
             lbl_bonus.setText(String.valueOf(35));
+        } else {
+            lbl_bonus.setText(String.valueOf(0));
         }
         lbl_ges_oben.setText(String.valueOf(int_ges_oben));
 
@@ -1051,6 +1053,7 @@ public class Spielbrett extends javax.swing.JFrame {
             rb_full_house.setEnabled(false);
             rb_full_house.setSelected(false);
         }
+        rb_chang.setEnabled(true);
         pruefen();
 
     }
@@ -1235,6 +1238,7 @@ public class Spielbrett extends javax.swing.JFrame {
             String name_spieler = JOptionPane.showInputDialog("Name von Spieler " + (x + 1), "");
             spieler[x] = new Spieler(name_spieler, x);
         }
+        count = 0;
         player_at_turn = 0;
         showName();
         loadPoints();
@@ -1257,17 +1261,26 @@ public class Spielbrett extends javax.swing.JFrame {
     }
 
     private void engageWin() {
-        Arrays.sort(spieler);
-        String message = "";
-        int count_num = 1;
+        String message = "Spiel vorbei!";
         for (Spieler aktuSpieler : spieler) {
-            message += "\n Spieler " + aktuSpieler.getName() + " hat mit " + aktuSpieler.getPkt_ges() + " den " + count_num + ". Platz belegt!";
-            count_num++;
+            message += "\n Spieler " + aktuSpieler.getName() + " hat mit " + aktuSpieler.getPkt_ges() + " Punkte(n) abgeschlossen";
+
+        }
+        JOptionPane.showMessageDialog(null, message, "Spiel vorbei", 1);
+        String[] buttons = {"Neues Spiel", "Spiel verlassen"};
+        int returnValue = JOptionPane.showOptionDialog(null, "Möchten Sie ein neues Spiel erstellen oder das Spiel verlassen?", "Kniffel",
+                JOptionPane.INFORMATION_MESSAGE, 1, null, buttons, buttons[0]);
+        switch (returnValue) {
+            case 0:
+                newGame();
+                break;
+            case 1:
+                System.exit(1);
         }
     }
 
     private void changePlayer() {
-        int count_fin = 1;
+        int count_fin = 0;
         for (Spieler spieler : spieler) {
             if (spieler.isFinished()) {
                 count_fin += 1;
@@ -1275,6 +1288,7 @@ public class Spielbrett extends javax.swing.JFrame {
         }
         if (count_fin == spieler.length) {
             engageWin();
+            return;
         }
         changeTurn();
         Spieler aktu = spieler[player_at_turn];
@@ -1396,7 +1410,7 @@ public class Spielbrett extends javax.swing.JFrame {
         Spieler aktu_spiel = spieler[player_at_turn];
         if (aktu_spiel.getPkt_1er() > 0) {
             lbl_1er.setText(String.valueOf(aktu_spiel.getPkt_1er()));
-            lbl_1er.setEnabled(false);
+            lbl_1er.setEnabled(true);
         } else if (aktu_spiel.getPkt_1er() < 0) {
             lbl_1er.setText("----");
             lbl_1er.setEnabled(false);
@@ -1407,7 +1421,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_2er() > 0) {
             lbl_2er.setText(String.valueOf(aktu_spiel.getPkt_2er()));
-            lbl_2er.setEnabled(false);
+            lbl_2er.setEnabled(true);
         } else if (aktu_spiel.getPkt_2er() < 0) {
             lbl_2er.setText("----");
             lbl_2er.setEnabled(false);
@@ -1418,7 +1432,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_3er() > 0) {
             lbl_3er.setText(String.valueOf(aktu_spiel.getPkt_3er()));
-            lbl_3er.setEnabled(false);
+            lbl_3er.setEnabled(true);
         } else if (aktu_spiel.getPkt_3er() < 0) {
             lbl_3er.setText("----");
             lbl_3er.setEnabled(false);
@@ -1429,7 +1443,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_4er() > 0) {
             lbl_4er.setText(String.valueOf(aktu_spiel.getPkt_4er()));
-            lbl_4er.setEnabled(false);
+            lbl_4er.setEnabled(true);
         } else if (aktu_spiel.getPkt_4er() < 0) {
             lbl_4er.setText("----");
             lbl_4er.setEnabled(false);
@@ -1440,7 +1454,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_5er() > 0) {
             lbl_5er.setText(String.valueOf(aktu_spiel.getPkt_5er()));
-            lbl_5er.setEnabled(false);
+            lbl_5er.setEnabled(true);
         } else if (aktu_spiel.getPkt_5er() < 0) {
             lbl_5er.setText("----");
             lbl_5er.setEnabled(false);
@@ -1451,7 +1465,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_6er() > 0) {
             lbl_6er.setText(String.valueOf(aktu_spiel.getPkt_6er()));
-            lbl_6er.setEnabled(false);
+            lbl_6er.setEnabled(true);
         } else if (aktu_spiel.getPkt_6er() < 0) {
             lbl_6er.setText("----");
             lbl_6er.setEnabled(false);
@@ -1462,6 +1476,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_3er_pash() > 0) {
             lbl_3er_psh.setText(String.valueOf(aktu_spiel.getPkt_3er_pash()));
+            lbl_3er_psh.setEnabled(true);
         } else if (aktu_spiel.getPkt_3er_pash() < 0) {
             lbl_3er_psh.setText("----");
             lbl_3er_psh.setEnabled(false);
@@ -1472,6 +1487,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_4er_pash() > 0) {
             lbl_4er_psh.setText(String.valueOf(aktu_spiel.getPkt_4er_pash()));
+            lbl_4er_psh.setEnabled(true);
         } else if (aktu_spiel.getPkt_4er_pash() < 0) {
             lbl_4er_psh.setText("----");
             lbl_4er_psh.setEnabled(false);
@@ -1482,6 +1498,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_fullhouse() > 0) {
             lbl_fullhouse.setText(String.valueOf(aktu_spiel.getPkt_fullhouse()));
+            lbl_fullhouse.setEnabled(true);
         } else if (aktu_spiel.getPkt_fullhouse() < 0) {
             lbl_fullhouse.setText("----");
             lbl_fullhouse.setEnabled(false);
@@ -1492,6 +1509,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_kleinestr() > 0) {
             lbl_kln_str.setText(String.valueOf(aktu_spiel.getPkt_kleinestr()));
+            lbl_kln_str.setEnabled(true);
         } else if (aktu_spiel.getPkt_kleinestr() < 0) {
             lbl_kln_str.setText("----");
             lbl_kln_str.setEnabled(false);
@@ -1502,6 +1520,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_grosstr() > 0) {
             lbl_grs_str.setText(String.valueOf(aktu_spiel.getPkt_grosstr()));
+            lbl_grs_str.setEnabled(true);
         } else if (aktu_spiel.getPkt_grosstr() < 0) {
             lbl_grs_str.setText("----");
             lbl_grs_str.setEnabled(false);
@@ -1512,6 +1531,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_kniffel() > 0) {
             lbl_knfl.setText(String.valueOf(aktu_spiel.getPkt_kniffel()));
+            lbl_knfl.setEnabled(true);
         } else if (aktu_spiel.getPkt_kniffel() < 0) {
             lbl_knfl.setText("----");
             lbl_knfl.setEnabled(false);
@@ -1522,6 +1542,7 @@ public class Spielbrett extends javax.swing.JFrame {
 
         if (aktu_spiel.getPkt_chance() > 0) {
             lbl_chnc.setText(String.valueOf(aktu_spiel.getPkt_chance()));
+            lbl_chnc.setEnabled(true);
         } else if (aktu_spiel.getPkt_chance() < 0) {
             lbl_chnc.setText("----");
             lbl_chnc.setEnabled(false);
