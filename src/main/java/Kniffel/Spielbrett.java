@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.time.Clock;
+import java.util.Arrays;
 import javax.swing.*;
 
 /**
@@ -101,6 +102,7 @@ public class Spielbrett extends javax.swing.JFrame {
         lbl_wuerfel4 = new javax.swing.JLabel();
         lbl_wuerfel5 = new javax.swing.JLabel();
         lbl_turn = new javax.swing.JLabel();
+        lbl_count = new javax.swing.JLabel();
         btn_wuerfeln = new javax.swing.JButton();
         rb_1er = new javax.swing.JRadioButton();
         rb_2er = new javax.swing.JRadioButton();
@@ -116,6 +118,7 @@ public class Spielbrett extends javax.swing.JFrame {
         rb_knfl = new javax.swing.JRadioButton();
         rb_chang = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
+        btn_new_game = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -226,6 +229,11 @@ public class Spielbrett extends javax.swing.JFrame {
         jPanel1.add(lbl_turn);
         lbl_turn.setBounds(0, 0, 60, 20);
 
+        lbl_count.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_count.setRequestFocusEnabled(false);
+        jPanel1.add(lbl_count);
+        lbl_count.setBounds(0, 20, 60, 20);
+
         lbl_wuerfel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lbl_wuerfel1MouseClicked(evt);
@@ -269,6 +277,11 @@ public class Spielbrett extends javax.swing.JFrame {
             }
         });
 
+        btn_new_game.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_new_gameMouseClicked(evt);
+            }
+        });
         btngrp1.add(rb_1er);
         rb_1er.setText("1er");
 
@@ -311,6 +324,9 @@ public class Spielbrett extends javax.swing.JFrame {
 
         jButton1.setText("Übertragen");
 
+        btn_new_game.setText("Neues Spiel");
+
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -349,7 +365,11 @@ public class Spielbrett extends javax.swing.JFrame {
                                         .addGroup(layout.createSequentialGroup()
                                                 .addGap(94, 94, 94)
                                                 .addComponent(jButton1))
-                                        .addComponent(lbl_turn))
+                                        .addGroup(layout.createSequentialGroup()
+                                                .addComponent(lbl_turn)
+                                                .addGap(150, 180, 192)
+                                                .addComponent(btn_new_game))
+                                        .addComponent(lbl_count))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
@@ -360,7 +380,11 @@ public class Spielbrett extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(layout.createSequentialGroup()
-                                                .addComponent(lbl_turn)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(lbl_turn)
+                                                        .addComponent(btn_new_game))
+                                                .addGap(1, 3, 10)
+                                                .addComponent(lbl_count)
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                         .addComponent(lbl_wuerfel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -520,12 +544,14 @@ public class Spielbrett extends javax.swing.JFrame {
             }
             count++;
             auswerten();
+            lbl_count.setText("      Du hast " + count + " Mal gewürfelt");
+
         }
         if (count >= 3) {
             btn_wuerfeln.setEnabled(false);
+            lbl_count.setText("      Du hast " + count + " Mal gewürfelt");
         }
-
-
+        zuruecksetzten();
     }//GEN-LAST:event_btn_wuerfelnMouseClicked
 
     private void lbl_wuerfel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_wuerfel1MouseClicked
@@ -619,6 +645,10 @@ public class Spielbrett extends javax.swing.JFrame {
         loadPoints();
         rechnen();
         btn_wuerfelnMouseClicked(evt);
+    }
+
+    private void btn_new_gameMouseClicked(java.awt.event.MouseEvent evt) {
+        newGame();
     }
 
     private void rechnen() {
@@ -979,7 +1009,13 @@ public class Spielbrett extends javax.swing.JFrame {
     }
 
     private void engageWin() {
-
+        Arrays.sort(spieler);
+        String message = "";
+        int count_num = 1;
+        for (Spieler aktuSpieler : spieler) {
+            message += "\n Spieler " + aktuSpieler.getName() + " hat mit " + aktuSpieler.getPkt_ges() + " den " + count_num + ". Platz belegt!";
+            count_num++;
+        }
     }
 
     private void changePlayer() {
@@ -1179,6 +1215,7 @@ public class Spielbrett extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton btn_new_game;
     private static javax.swing.JLabel lbl_1er;
     private static javax.swing.JLabel lbl_2er;
     private static javax.swing.JLabel lbl_3er;
@@ -1204,6 +1241,7 @@ public class Spielbrett extends javax.swing.JFrame {
     private static javax.swing.JLabel lbl_wuerfel5;
     private static javax.swing.JLabel lbl_zws_oben;
     private static javax.swing.JLabel lbl_turn;
+    private static javax.swing.JLabel lbl_count;
     private javax.swing.JRadioButton rb_1er;
     private javax.swing.JRadioButton rb_2er;
     private javax.swing.JRadioButton rb_3er;

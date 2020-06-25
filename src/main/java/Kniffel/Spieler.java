@@ -2,6 +2,7 @@ package Kniffel;
 
 public class Spieler {
 
+    private int pkt_ges;
     private String name;
     private int nummer;
     private int pkt_1er;
@@ -17,7 +18,7 @@ public class Spieler {
     private int pkt_grosstr;
     private int pkt_kniffel;
     private int pkt_chance;
-    private int pkt_ges;
+
 
 
     public Spieler(String name, int nummer) {
@@ -100,10 +101,14 @@ public class Spieler {
     }
 
     public boolean isFinished() {
-        if ((pkt_1er > 0) && (pkt_2er > 0) && (pkt_3er > 0) && (pkt_4er > 0) && (pkt_5er > 0) && (pkt_6er > 0) && (pkt_3er_pash > 0) && (pkt_4er_pash > 0) && (pkt_fullhouse > 0) && (pkt_kleinestr > 0) && (pkt_grosstr > 0) && (pkt_kniffel > 0) && (pkt_chance > 0)) {
+        if ((pkt_1er != 0) && (pkt_2er != 0) && (pkt_3er != 0) && (pkt_4er != 0) && (pkt_5er != 0) && (pkt_6er != 0) && (pkt_3er_pash != 0) && (pkt_4er_pash != 0) && (pkt_fullhouse != 0) && (pkt_kleinestr != 0) && (pkt_grosstr != 0) && (pkt_kniffel != 0) && (pkt_chance != 0)) {
             return true;
         } else {
             return false;
         }
+    }
+
+    public int getPkt_ges() {
+        return pkt_ges;
     }
 }
