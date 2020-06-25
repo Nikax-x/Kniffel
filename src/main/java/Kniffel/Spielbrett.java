@@ -316,6 +316,42 @@ public class Spielbrett extends javax.swing.JFrame {
                 lbl_6erMouseClicked(evt);
             }
         });
+
+        lbl_3er_psh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_3er_pshMouseClicked(evt);
+            }
+        });
+        lbl_4er_psh.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_4er_pshMouseClicked(evt);
+            }
+        });
+        lbl_fullhouse.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_fullhouseMouseClicked(evt);
+            }
+        });
+        lbl_kln_str.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_kln_strMouseClicked(evt);
+            }
+        });
+        lbl_grs_str.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_grs_strMouseClicked(evt);
+            }
+        });
+        lbl_knfl.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_knflMouseClicked(evt);
+            }
+        });
+        lbl_chnc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbl_chncMouseClicked(evt);
+            }
+        });
         btngrp1.add(rb_1er);
         rb_1er.setText("1er");
 
@@ -686,44 +722,184 @@ public class Spielbrett extends javax.swing.JFrame {
     }
 
     private void lbl_1erMouseClicked(java.awt.event.MouseEvent evt) {
-        if (lbl_1er.getText().equals("")) {
-            lbl_1er.setText("");
+        if (lbl_1er.getText().equals("0")) {
+            lbl_1er.setText("----");
             lbl_1er.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
         }
     }
 
     private void lbl_2erMouseClicked(java.awt.event.MouseEvent evt) {
-        if (lbl_2er.getText().equals("")) {
-            lbl_2er.setText("");
+        if (lbl_2er.getText().equals("0")) {
+            lbl_2er.setText("----");
             lbl_2er.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
         }
     }
 
     private void lbl_3erMouseClicked(java.awt.event.MouseEvent evt) {
-        if (lbl_3er.getText().equals("")) {
-            lbl_3er.setText("");
+        if (lbl_3er.getText().equals("0")) {
+            lbl_3er.setText("----");
             lbl_3er.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
         }
     }
 
     private void lbl_4erMouseClicked(java.awt.event.MouseEvent evt) {
-        if (lbl_4er.getText().equals("")) {
-            lbl_4er.setText("");
+        if (lbl_4er.getText().equals("0")) {
+            lbl_4er.setText("----");
             lbl_4er.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
         }
     }
 
     private void lbl_5erMouseClicked(java.awt.event.MouseEvent evt) {
-        if (lbl_5er.getText().equals("")) {
-            lbl_5er.setText("");
+        if (lbl_5er.getText().equals("0")) {
+            lbl_5er.setText("----");
             lbl_5er.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
         }
     }
 
     private void lbl_6erMouseClicked(java.awt.event.MouseEvent evt) {
-        if (lbl_6er.getText().equals("")) {
-            lbl_6er.setText("");
+        if (lbl_6er.getText().equals("0")) {
+            lbl_6er.setText("----");
             lbl_6er.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_3er_pshMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_3er_psh.getText().equals("0")) {
+            lbl_3er_psh.setText("----");
+            lbl_3er_psh.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_4er_pshMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_4er_psh.getText().equals("0")) {
+            lbl_4er_psh.setText("----");
+            lbl_4er_psh.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_fullhouseMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_fullhouse.getText().equals("0")) {
+            lbl_fullhouse.setText("----");
+            lbl_fullhouse.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_kln_strMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_kln_str.getText().equals("0")) {
+            lbl_kln_str.setText("----");
+            lbl_kln_str.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_grs_strMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_grs_str.getText().equals("0")) {
+            lbl_grs_str.setText("----");
+            lbl_grs_str.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_knflMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_knfl.getText().equals("0")) {
+            lbl_knfl.setText("----");
+            lbl_knfl.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
+        }
+    }
+
+    private void lbl_chncMouseClicked(java.awt.event.MouseEvent evt) {
+        if (lbl_chnc.getText().equals("0")) {
+            lbl_chnc.setText("----");
+            lbl_chnc.setEnabled(false);
+
+            zuruecksetzten();
+            savePoints();
+            changePlayer();
+            loadPoints();
+            rechnen();
+            btn_wuerfelnMouseClicked(evt);
         }
     }
 
@@ -731,27 +907,27 @@ public class Spielbrett extends javax.swing.JFrame {
         int int_ges_oben = 0;
         int int_ges_unten = 0;
 
-        if (!(lbl_1er.getText().equals(""))) {
+        if (!(lbl_1er.getText().equals("----"))) {
             int int_1er = Integer.parseInt(lbl_1er.getText());
             int_ges_oben += int_1er;
         }
-        if (!(lbl_2er.getText().equals(""))) {
+        if (!(lbl_2er.getText().equals("----"))) {
             int int_2er = Integer.parseInt(lbl_2er.getText());
             int_ges_oben += int_2er;
         }
-        if (!(lbl_3er.getText().equals(""))) {
+        if (!(lbl_3er.getText().equals("----"))) {
             int int_3er = Integer.parseInt(lbl_3er.getText());
             int_ges_oben += int_3er;
         }
-        if (!(lbl_4er.getText().equals(""))) {
+        if (!(lbl_4er.getText().equals("----"))) {
             int int_4er = Integer.parseInt(lbl_4er.getText());
             int_ges_oben += int_4er;
         }
-        if (!(lbl_5er.getText().equals(""))) {
+        if (!(lbl_5er.getText().equals("----"))) {
             int int_5er = Integer.parseInt(lbl_5er.getText());
             int_ges_oben += int_5er;
         }
-        if (!(lbl_6er.getText().equals(""))) {
+        if (!(lbl_6er.getText().equals("----"))) {
             int int_6er = Integer.parseInt(lbl_6er.getText());
             int_ges_oben += int_6er;
         }
@@ -762,25 +938,25 @@ public class Spielbrett extends javax.swing.JFrame {
         }
         lbl_ges_oben.setText(String.valueOf(int_ges_oben));
 
-        if (!(lbl_3er_psh.getText().equals(""))) {
+        if (!(lbl_3er_psh.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_3er_psh.getText());
         }
-        if (!(lbl_4er_psh.getText().equals(""))) {
+        if (!(lbl_4er_psh.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_4er_psh.getText());
         }
-        if (!(lbl_fullhouse.getText().equals(""))) {
+        if (!(lbl_fullhouse.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_fullhouse.getText());
         }
-        if (!(lbl_kln_str.getText().equals(""))) {
+        if (!(lbl_kln_str.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_kln_str.getText());
         }
-        if (!(lbl_grs_str.getText().equals(""))) {
+        if (!(lbl_grs_str.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_grs_str.getText());
         }
-        if (!(lbl_knfl.getText().equals(""))) {
+        if (!(lbl_knfl.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_knfl.getText());
         }
-        if (!(lbl_chnc.getText().equals(""))) {
+        if (!(lbl_chnc.getText().equals("----"))) {
             int_ges_unten += Integer.parseInt(lbl_chnc.getText());
         }
         lbl_ges_oben_erneut.setText(String.valueOf(int_ges_oben));
@@ -990,59 +1166,55 @@ public class Spielbrett extends javax.swing.JFrame {
     }
 
     private void pruefen() {
-        if (lbl_1er.getText() != "") {
+        if (!(lbl_1er.getText() == "0" && lbl_1er.isEnabled())) {
             rb_1er.setEnabled(false);
             rb_1er.setSelected(false);
         }
-        if (lbl_2er.getText() != "") {
+        if (!(lbl_2er.getText() == "0" && lbl_2er.isEnabled())) {
             rb_2er.setEnabled(false);
             rb_2er.setSelected(false);
         }
-        if (lbl_3er.getText() != "") {
+        if (!(lbl_3er.getText() == "0" && lbl_3er.isEnabled())) {
             rb_3er.setEnabled(false);
             rb_3er.setSelected(false);
         }
-        if (lbl_4er.getText() != "") {
+        if (!(lbl_4er.getText() == "0" && lbl_4er.isEnabled())) {
             rb_4er.setEnabled(false);
             rb_4er.setSelected(false);
         }
-        if (lbl_5er.getText() != "") {
+        if (!(lbl_5er.getText() == "0" && lbl_5er.isEnabled())) {
             rb_5er.setEnabled(false);
             rb_5er.setSelected(false);
         }
-        if (lbl_6er.getText() != "") {
+        if (!(lbl_6er.getText() == "0" && lbl_6er.isEnabled())) {
             rb_6er.setEnabled(false);
             rb_6er.setSelected(false);
         }
-        if (lbl_3er_psh.getText() != "") {
+        if (!(lbl_3er_psh.getText() == "0" && lbl_3er_psh.isEnabled())) {
             rb_3er_par.setEnabled(false);
             rb_3er_par.setSelected(false);
         }
-        if (lbl_4er_psh.getText() != "") {
+        if (!(lbl_4er_psh.getText() == "0" && lbl_4er_psh.isEnabled())) {
             rb_4er_par.setEnabled(false);
             rb_4er_par.setSelected(false);
         }
-        if (lbl_4er_psh.getText() != "") {
-            rb_4er_par.setEnabled(false);
-            rb_4er_par.setSelected(false);
-        }
-        if (lbl_fullhouse.getText() != "") {
+        if (!(lbl_fullhouse.getText() == "0" && lbl_fullhouse.isEnabled())) {
             rb_full_house.setEnabled(false);
             rb_full_house.setSelected(false);
         }
-        if (lbl_kln_str.getText() != "") {
+        if (!(lbl_kln_str.getText() == "0" && lbl_kln_str.isEnabled())) {
             rb_kln_str.setEnabled(false);
             rb_kln_str.setSelected(false);
         }
-        if (lbl_grs_str.getText() != "") {
+        if (!(lbl_grs_str.getText() == "0" && lbl_grs_str.isEnabled())) {
             rb_gr_str.setEnabled(false);
             rb_gr_str.setSelected(false);
         }
-        if (lbl_knfl.getText() != "") {
+        if (!(lbl_knfl.getText() == "0" && lbl_knfl.isEnabled())) {
             rb_knfl.setEnabled(false);
             rb_knfl.setSelected(false);
         }
-        if (lbl_chnc.getText() != "") {
+        if (!(lbl_chnc.getText() == "0" && lbl_chnc.isEnabled())) {
             rb_chang.setEnabled(false);
             rb_chang.setSelected(false);
         }
@@ -1120,6 +1292,7 @@ public class Spielbrett extends javax.swing.JFrame {
     private static void showName() {
         Spieler aktu_spiel = spieler[player_at_turn];
         lbl_turn.setText("      " + aktu_spiel.getName() + " ist dran!");
+        JOptionPane.showMessageDialog(null, aktu_spiel.getName() + " jetzt an der Reihe!", "Nächster", 1);
     }
 
     private void savePoints() {
@@ -1138,79 +1311,79 @@ public class Spielbrett extends javax.swing.JFrame {
         int int_chang = 0;
 
         Spieler aktu_spiel = spieler[player_at_turn];
-        if (!(lbl_1er.getText().equals("")) && lbl_1er.isEnabled()) {
+        if (!(lbl_1er.getText().equals("0")) && lbl_1er.isEnabled()) {
             int_1er = Integer.parseInt(lbl_1er.getText());
         } else if (!(lbl_1er.isEnabled())) {
             int_1er = -1;
         }
 
-        if (!(lbl_2er.getText().equals("")) && lbl_2er.isEnabled()) {
+        if (!(lbl_2er.getText().equals("0")) && lbl_2er.isEnabled()) {
             int_2er = Integer.parseInt(lbl_2er.getText());
         } else if (!(lbl_2er.isEnabled())) {
             int_2er = -1;
         }
 
-        if (!(lbl_3er.getText().equals("")) && lbl_3er.isEnabled()) {
+        if (!(lbl_3er.getText().equals("0")) && lbl_3er.isEnabled()) {
             int_3er = Integer.parseInt(lbl_3er.getText());
         } else if (!(lbl_3er.isEnabled())) {
             int_3er = -1;
         }
 
-        if (!(lbl_4er.getText().equals("")) && lbl_4er.isEnabled()) {
+        if (!(lbl_4er.getText().equals("0")) && lbl_4er.isEnabled()) {
             int_4er = Integer.parseInt(lbl_4er.getText());
         } else if (!(lbl_4er.isEnabled())) {
             int_4er = -1;
         }
 
-        if (!(lbl_5er.getText().equals("")) && lbl_5er.isEnabled()) {
+        if (!(lbl_5er.getText().equals("0")) && lbl_5er.isEnabled()) {
             int_5er = Integer.parseInt(lbl_5er.getText());
         } else if (!(lbl_5er.isEnabled())) {
             int_5er = -1;
         }
 
-        if (!(lbl_6er.getText().equals("")) && lbl_6er.isEnabled()) {
+        if (!(lbl_6er.getText().equals("0")) && lbl_6er.isEnabled()) {
             int_6er = Integer.parseInt(lbl_6er.getText());
         } else if (!(lbl_6er.isEnabled())) {
             int_6er = -1;
         }
 
-        if (!(lbl_3er_psh.getText().equals("")) && lbl_3er_psh.isEnabled()) {
+        if (!(lbl_3er_psh.getText().equals("0")) && lbl_3er_psh.isEnabled()) {
             int_3er_psh = Integer.parseInt(lbl_3er_psh.getText());
         } else if (!(lbl_3er_psh.isEnabled())) {
             int_3er_psh = -1;
         }
 
-        if (!(lbl_4er_psh.getText().equals("")) && lbl_4er_psh.isEnabled()) {
+        if (!(lbl_4er_psh.getText().equals("0")) && lbl_4er_psh.isEnabled()) {
             int_4er_psh = Integer.parseInt(lbl_4er_psh.getText());
         } else if (!(lbl_4er_psh.isEnabled())) {
             int_4er_psh = -1;
         }
 
-        if (!(lbl_fullhouse.getText().equals("")) && lbl_fullhouse.isEnabled()) {
+        if (!(lbl_fullhouse.getText().equals("0")) && lbl_fullhouse.isEnabled()) {
             int_full_house = Integer.parseInt(lbl_fullhouse.getText());
         } else if (!(lbl_fullhouse.isEnabled())) {
             int_full_house = -1;
         }
 
-        if (!(lbl_kln_str.getText().equals("")) && lbl_kln_str.isEnabled()) {
+        if (!(lbl_kln_str.getText().equals("0")) && lbl_kln_str.isEnabled()) {
             int_kln_str = Integer.parseInt(lbl_kln_str.getText());
         } else if (!(lbl_kln_str.isEnabled())) {
             int_kln_str = -1;
         }
 
-        if (!(lbl_grs_str.getText().equals("")) && lbl_grs_str.isEnabled()) {
+        if (!(lbl_grs_str.getText().equals("0")) && lbl_grs_str.isEnabled()) {
             int_grs_str = Integer.parseInt(lbl_grs_str.getText());
         } else if (!(lbl_grs_str.isEnabled())) {
             int_grs_str = -1;
         }
 
-        if (!(lbl_knfl.getText().equals("")) && lbl_knfl.isEnabled()) {
+        if (!(lbl_knfl.getText().equals("0")) && lbl_knfl.isEnabled()) {
             int_knfl = Integer.parseInt(lbl_knfl.getText());
         } else if (!(lbl_knfl.isEnabled())) {
             int_knfl = -1;
         }
 
-        if (!(lbl_chnc.getText().equals("")) && lbl_chnc.isEnabled()) {
+        if (!(lbl_chnc.getText().equals("0")) && lbl_chnc.isEnabled()) {
             int_chang = Integer.parseInt(lbl_chnc.getText());
         } else if (!(lbl_chnc.isEnabled())) {
             int_chang = -1;
@@ -1223,119 +1396,138 @@ public class Spielbrett extends javax.swing.JFrame {
         Spieler aktu_spiel = spieler[player_at_turn];
         if (aktu_spiel.getPkt_1er() > 0) {
             lbl_1er.setText(String.valueOf(aktu_spiel.getPkt_1er()));
+            lbl_1er.setEnabled(false);
         } else if (aktu_spiel.getPkt_1er() < 0) {
             lbl_1er.setText("----");
             lbl_1er.setEnabled(false);
         } else {
-            lbl_1er.setText("");
+            lbl_1er.setText("0");
+            lbl_1er.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_2er() > 0) {
             lbl_2er.setText(String.valueOf(aktu_spiel.getPkt_2er()));
+            lbl_2er.setEnabled(false);
         } else if (aktu_spiel.getPkt_2er() < 0) {
             lbl_2er.setText("----");
             lbl_2er.setEnabled(false);
         } else {
-            lbl_2er.setText("");
+            lbl_2er.setText("0");
+            lbl_2er.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_3er() > 0) {
             lbl_3er.setText(String.valueOf(aktu_spiel.getPkt_3er()));
+            lbl_3er.setEnabled(false);
         } else if (aktu_spiel.getPkt_3er() < 0) {
             lbl_3er.setText("----");
             lbl_3er.setEnabled(false);
         } else {
-            lbl_3er.setText("");
+            lbl_3er.setText("0");
+            lbl_3er.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_4er() > 0) {
             lbl_4er.setText(String.valueOf(aktu_spiel.getPkt_4er()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+            lbl_4er.setEnabled(false);
+        } else if (aktu_spiel.getPkt_4er() < 0) {
             lbl_4er.setText("----");
             lbl_4er.setEnabled(false);
         } else {
-            lbl_4er.setText("");
+            lbl_4er.setText("0");
+            lbl_4er.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_5er() > 0) {
             lbl_5er.setText(String.valueOf(aktu_spiel.getPkt_5er()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+            lbl_5er.setEnabled(false);
+        } else if (aktu_spiel.getPkt_5er() < 0) {
             lbl_5er.setText("----");
             lbl_5er.setEnabled(false);
         } else {
-            lbl_5er.setText("");
+            lbl_5er.setText("0");
+            lbl_5er.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_6er() > 0) {
             lbl_6er.setText(String.valueOf(aktu_spiel.getPkt_6er()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+            lbl_6er.setEnabled(false);
+        } else if (aktu_spiel.getPkt_6er() < 0) {
             lbl_6er.setText("----");
             lbl_6er.setEnabled(false);
         } else {
-            lbl_6er.setText("");
+            lbl_6er.setText("0");
+            lbl_6er.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_3er_pash() > 0) {
             lbl_3er_psh.setText(String.valueOf(aktu_spiel.getPkt_3er_pash()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_3er_pash() < 0) {
             lbl_3er_psh.setText("----");
             lbl_3er_psh.setEnabled(false);
         } else {
-            lbl_3er_psh.setText("");
+            lbl_3er_psh.setText("0");
+            lbl_3er_psh.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_4er_pash() > 0) {
             lbl_4er_psh.setText(String.valueOf(aktu_spiel.getPkt_4er_pash()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_4er_pash() < 0) {
             lbl_4er_psh.setText("----");
             lbl_4er_psh.setEnabled(false);
         } else {
-            lbl_4er_psh.setText("");
+            lbl_4er_psh.setText("0");
+            lbl_4er_psh.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_fullhouse() > 0) {
             lbl_fullhouse.setText(String.valueOf(aktu_spiel.getPkt_fullhouse()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_fullhouse() < 0) {
             lbl_fullhouse.setText("----");
             lbl_fullhouse.setEnabled(false);
         } else {
-            lbl_fullhouse.setText("");
+            lbl_fullhouse.setText("0");
+            lbl_fullhouse.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_kleinestr() > 0) {
             lbl_kln_str.setText(String.valueOf(aktu_spiel.getPkt_kleinestr()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_kleinestr() < 0) {
             lbl_kln_str.setText("----");
             lbl_kln_str.setEnabled(false);
         } else {
-            lbl_kln_str.setText("");
+            lbl_kln_str.setText("0");
+            lbl_kln_str.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_grosstr() > 0) {
             lbl_grs_str.setText(String.valueOf(aktu_spiel.getPkt_grosstr()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_grosstr() < 0) {
             lbl_grs_str.setText("----");
             lbl_grs_str.setEnabled(false);
         } else {
-            lbl_grs_str.setText("");
+            lbl_grs_str.setText("0");
+            lbl_grs_str.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_kniffel() > 0) {
             lbl_knfl.setText(String.valueOf(aktu_spiel.getPkt_kniffel()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_kniffel() < 0) {
             lbl_knfl.setText("----");
             lbl_knfl.setEnabled(false);
         } else {
-            lbl_knfl.setText("");
+            lbl_knfl.setText("0");
+            lbl_knfl.setEnabled(true);
         }
 
         if (aktu_spiel.getPkt_chance() > 0) {
             lbl_chnc.setText(String.valueOf(aktu_spiel.getPkt_chance()));
-        } else if (aktu_spiel.getPkt_2er() < 0) {
+        } else if (aktu_spiel.getPkt_chance() < 0) {
             lbl_chnc.setText("----");
             lbl_chnc.setEnabled(false);
         } else {
-            lbl_chnc.setText("");
+            lbl_chnc.setText("0");
+            lbl_chnc.setEnabled(true);
         }
     }
 
